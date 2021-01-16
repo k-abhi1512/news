@@ -1,18 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1 class="mt-4">Listing Page</h1>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            {% for i in news %}
-            <p>{{i.image.urls}}</p>
-            <h2>{{i.title}}</h2>
-            <h3>{{i.description }}</h3>
-            {% endfor %}
+        <div class="col-md-6 mb-4">
+            <h1 class="mt-4">Listing Page</h1>
         </div>
+        {% if user.is_authenticated %}
+        <div class="col-md-3 mt-4">
+            <a href="insert"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Insert News</button></a>
+        </div>
+        <div class="col-md-2 mt-4"><h4>Hello, {{user.username}}</h4></div>
+        <div class="col-md-1 mt-4">
+            <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a>
+        </div>
+        {% else %}
+        <div class="col-md-3 mt-4">
+            <a href="login"><button type="button" class="btn btn-success">Login</button></a>
+        </div>
+        {% endif %}
     </div>
-    <a href="insert"><button type="button" class="btn btn-info">Insert News</button></a>
+</div>
+<div class="container">
+    <div class="row">
+        {% for i in news %}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">{{i.title}}</h2>
+                    <p class="card-text">{{i.content }}</p>                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>   
 </div>
 
 

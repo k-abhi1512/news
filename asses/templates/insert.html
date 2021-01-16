@@ -3,19 +3,42 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<h1 class="mt-4"> Insertion Page </h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h1 class="mt-4"> Insertion Page </h1>
+        </div>
+        <div class="col-md-12 col-lg-12 mb-4"></div>
+            {% for message in messages|slice:'1' %}
+                <p class="mb-5" style="color: green;"><i class="fa fa-check"></i>&nbsp; {{message}} </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form method="POST">
-                {% csrf_token %}
-                <label>News Title</label>    
-                <input type="text" class="form-control" placeholder="News Title" required>
-                <label>Description</label>
-                <input type="text" class="form-control" placeholder="News Title" required>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}                
                 <label>Image Url</label> 
-                <input type="image" class="form-control">
+                {{ form.image| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
+                <span class="error">
+                    {{ form.image.errors}}
+                </span>
+
+                <label>News Title</label> 
+                {{ form.title| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
+                <span class="error">
+                    {{ form.title.errors}}
+                </span>
+
+                <label>Description</label>
+                {{ form.content| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Content*'}}
+                <span class="error">
+                    {{ form.content.errors}}
+                </span>
+                <a href="/"><button type="button" class="btn btn-warning">Back</button></a>&nbsp; &nbsp;
                 <button type="submit" class="btn btn-success">Submit News</button>
             </form>
         </div>
