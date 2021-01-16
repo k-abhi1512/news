@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h1 class="mt-4"> Insertion Page </h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <label>News Title</label>    
+                <input type="text" class="form-control" placeholder="News Title" required>
+                <label>Description</label>
+                <input type="text" class="form-control" placeholder="News Title" required>
+                <label>Image Url</label> 
+                <input type="image" class="form-control">
+                <button type="submit" class="btn btn-success">Submit News</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
