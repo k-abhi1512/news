@@ -19,28 +19,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}                
-                <label>Image Url</label> 
-                {{ form.image| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
-                <span class="error">
-                    {{ form.image.errors}}
-                </span>
+            <div class="card mt-4 mb-4 p-5"> 
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}                
+                    <label>Image</label> 
+                    {{ form.image| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
+                    <span class="error">
+                        {{ form.image.errors}}
+                    </span>
 
-                <label>News Title</label> 
-                {{ form.title| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
-                <span class="error">
-                    {{ form.title.errors}}
-                </span>
+                    <label>News Title</label> 
+                    {{ form.title| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Title*'}}
+                    <span class="error">
+                        {{ form.title.errors}}
+                    </span>
 
-                <label>Description</label>
-                {{ form.content| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Content*'}}
-                <span class="error">
-                    {{ form.content.errors}}
-                </span>
-                <a href="/"><button type="button" class="btn btn-warning">Back</button></a>&nbsp; &nbsp;
-                <button type="submit" class="btn btn-success">Submit News</button>
-            </form>
+                    <label>Content</label>
+                    {{ form.content| add_class:"form-control mb-4"|attr:'required'|attr:'placeholder:News Content*'}}
+                    <span class="error">
+                        {{ form.content.errors}}
+                    </span>
+                    <a href="/"><button type="button" class="btn btn-warning">Back</button></a>&nbsp; &nbsp;
+                    <button type="submit" class="btn btn-success">Submit News</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
