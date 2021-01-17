@@ -17,6 +17,7 @@
 9. Install packages if asked any.
 10. Load the localhost url with port 8080 mentioned in the command line or terminal after running server.
 11. Install postgres connector psycopg2 using command "pip install psycopg2".
+12. In settings file change database host to 'localhost' instead of 'db'.
 
 
 # Requirements #
