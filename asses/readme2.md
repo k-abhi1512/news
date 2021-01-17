@@ -1,3 +1,7 @@
+# For Docker #
+1. Need to run the pgAdmin4 application for postgres sql port 5432
+2. Just go the the asses folder path and run the "docker-compose build" comand and wait till process completes.
+3. Then execute "docker-compose up" command
 <!-->
 
 # Steps for running the project in locale machine without docker #
